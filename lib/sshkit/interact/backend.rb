@@ -7,8 +7,8 @@ module SSHKit
     class Backend < SSHKit::Backend::Netssh
       @pool = SSHKit::Backend::ConnectionPool.new
 
-      def interact(*args)
-        SSHKit::Interact::Command.new(host, command(*args)).execute
+      def interact(*args, options: {})
+        SSHKit::Interact::Command.new(host, command(args, options)).execute
       end
     end
   end
